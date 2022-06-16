@@ -10,4 +10,10 @@ public class Edge {
         this.endVertex = endVertex;
         this.weight = weight;
     }
+
+    public String toString() {
+        return "Edge startVertex=" + startVertex.toString() +
+                " endVertex=" + endVertex.toString() +
+                " weight=" + String.valueOf(weight);
+    }
 }

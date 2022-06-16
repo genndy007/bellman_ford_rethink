@@ -7,4 +7,8 @@ public class Vertex {
     public Vertex(int id) {
         this.id = id;
     }
+
+    public String toString() {
+        return "V_id=" + String.valueOf(id);
+    }
 }
