@@ -4,7 +4,7 @@ import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        String graphFilePath = "graphs/graph_little.txt";
+        String graphFilePath = "graph_little.txt";
         GraphReader gr = new GraphReader(graphFilePath);
         Graph g = gr.readAsEdgeList();
 

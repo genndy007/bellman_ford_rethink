@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GraphReader {
+    private final String directory = "graphs/";
     private final String filePath;
 
     public GraphReader(String filePath) {
@@ -15,7 +16,7 @@ public class GraphReader {
     }
 
     private BufferedReader getBufferedReader() {
-        InputStream is = this.getClass().getClassLoader().getResourceAsStream(filePath);
+        InputStream is = this.getClass().getClassLoader().getResourceAsStream(directory + filePath);
         if (is == null) throw new IllegalArgumentException(filePath + " not found in resources dir");
         return new BufferedReader(new InputStreamReader(is));
     }
