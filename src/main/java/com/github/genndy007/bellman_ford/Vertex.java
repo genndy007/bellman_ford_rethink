@@ -9,6 +9,6 @@ public class Vertex {
     }
 
     public String toString() {
-        return "V_id=" + String.valueOf(id);
+        return "V_id=" + String.valueOf(id) + " dist=" + String.valueOf(distance);
     }
 }
