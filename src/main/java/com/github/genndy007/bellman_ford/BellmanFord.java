@@ -10,7 +10,18 @@ public class BellmanFord {
     }
 
     public void sequentialAlgorithm() {
+        for (Vertex v: graph.vertices) {
+            v.distance = Integer.MAX_VALUE;
+        }
         graph.vertices.get(startId).distance = 0;
-        System.out.println(graph.vertices.get(startId).distance);
+
+        for (int i = 1; i < graph.vertices.size(); i++) {
+            for (Edge e: graph.edges) {
+                graph.vertices.get(e.endId).distance = Math.min(
+                        graph.vertices.get(e.endId).distance,
+                        graph.vertices.get(e.startId).distance + e.weight
+                );
+            }
+        }
     }
 }

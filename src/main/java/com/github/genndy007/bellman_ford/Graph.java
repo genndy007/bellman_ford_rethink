@@ -27,4 +27,12 @@ public class Graph {
         }
         return response;
     }
+
+    public void printDistances() {
+        String line;
+        for (Vertex v: vertices) {
+            line = String.valueOf(v.id) + " " + String.valueOf(v.distance);
+            System.out.println(line);
+        }
+    }
 }

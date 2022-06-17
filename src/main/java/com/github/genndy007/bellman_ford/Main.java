@@ -11,6 +11,8 @@ public class Main {
         BellmanFord bf = new BellmanFord(g, 0);
         bf.sequentialAlgorithm();
 
+        g.printDistances();
+
 
 
     }
