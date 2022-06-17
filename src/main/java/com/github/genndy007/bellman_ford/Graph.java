@@ -21,8 +21,8 @@ public class Graph {
         response += "\n edges = ";
         for (Edge e : edges) {
             response += "(" +
-                    String.valueOf(e.startVertex.id) + ", " +
-                    String.valueOf(e.endVertex.id) + ", " +
+                    String.valueOf(e.startId) + ", " +
+                    String.valueOf(e.endId) + ", " +
                     String.valueOf(e.weight) + ") ";
         }
         return response;

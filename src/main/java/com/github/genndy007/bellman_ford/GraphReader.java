@@ -43,7 +43,7 @@ public class GraphReader {
             int endId = Integer.parseInt(splited[1]);
             int weight = Integer.parseInt(splited[2]);
 
-            edges.add(new Edge(vertices.get(startId), vertices.get(endId), weight));
+            edges.add(new Edge(startId, endId, weight));
 
         }
 

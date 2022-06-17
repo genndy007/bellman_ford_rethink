@@ -1,19 +1,19 @@
 package com.github.genndy007.bellman_ford;
 
 public class Edge {
-    public Vertex startVertex;
-    public Vertex endVertex;
+    public int startId;
+    public int endId;
     public int weight;
 
-    public Edge(Vertex startVertex, Vertex endVertex, int weight) {
-        this.startVertex = startVertex;
-        this.endVertex = endVertex;
+    public Edge(int startId, int endId, int weight) {
+        this.startId = startId;
+        this.endId = endId;
         this.weight = weight;
     }
 
     public String toString() {
-        return "Edge startVertex=" + startVertex.toString() +
-                " endVertex=" + endVertex.toString() +
+        return "Edge startId=" + String.valueOf(startId) +
+                " endId=" + String.valueOf(endId) +
                 " weight=" + String.valueOf(weight);
     }
 }
