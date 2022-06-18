@@ -33,7 +33,7 @@ public class BellmanFord {
     }
 
     public void parallelAlgorithm(int numberOfThreads) {
-        MyThreadPool threadPool = new MyThreadPool(numberOfThreads, 1000);
+        MyThreadPool threadPool = new MyThreadPool(numberOfThreads, 1000000);
 
         for (Vertex v : graph.vertices) {
             threadPool.execute(() -> {
@@ -45,12 +45,12 @@ public class BellmanFord {
 
 
         // prepare chunks containers
-        List<ConcurrentLinkedQueue<Edge>> adjEdges = new ArrayList<>();
+        List<List<Edge>> adjEdges = new ArrayList<>();
         int chunkSize = graph.vertices.size() / numberOfThreads;
         List<IntPair> chunks = new ArrayList<>();
         for (int i = 0; i * chunkSize < graph.vertices.size(); i++) {
             chunks.add(new IntPair(i * chunkSize, i * chunkSize + chunkSize));
-            adjEdges.add(new ConcurrentLinkedQueue<>());
+            adjEdges.add(new ArrayList<>());
         }
 
         // split edges into parallelizable and seq
@@ -65,10 +65,13 @@ public class BellmanFord {
                 }
             }
         }
+//        System.out.println("Mapping over");
 
 
+//        System.out.println(adjEdges);
+//        System.out.println(seqEdges);
         for (int i = 1; i < graph.vertices.size(); i++) {
-            for (ConcurrentLinkedQueue<Edge> queue : adjEdges) {
+            for (List<Edge> queue : adjEdges) {
                 threadPool.execute(() -> {
                     for (Edge e : queue) {
                         graph.vertices.get(e.endId).distance = Math.min(
@@ -87,7 +90,6 @@ public class BellmanFord {
             }
         }
         threadPool.stop();
-
 
 
     }

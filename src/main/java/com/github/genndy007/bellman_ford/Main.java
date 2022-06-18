@@ -4,15 +4,20 @@ import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        String graphFilePath = "graph_v6.txt";
+        String graphFilePath = "graph_v1000.txt";
         GraphReader gr = new GraphReader(graphFilePath);
         Graph g = gr.readAsEdgeList();
-//        System.out.println(g);
 
         BellmanFord bf = new BellmanFord(g, 0);
-        bf.parallelAlgorithm(2);
+
+        long startTime = System.currentTimeMillis();
+        bf.parallelAlgorithm(16);
 //        bf.sequentialAlgorithm();
-        g.printDistances();
+        long endTime = System.currentTimeMillis();
+
+        System.out.println("That took " + (endTime - startTime) + " milliseconds");
+
+
 
 
     }
