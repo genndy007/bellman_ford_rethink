@@ -7,10 +7,11 @@ public class Main {
         String graphFilePath = "graph_v6.txt";
         GraphReader gr = new GraphReader(graphFilePath);
         Graph g = gr.readAsEdgeList();
+//        System.out.println(g);
 
         BellmanFord bf = new BellmanFord(g, 0);
-        bf.sequentialAlgorithm();
-
+        bf.parallelAlgorithm(2);
+//        bf.sequentialAlgorithm();
         g.printDistances();
 
 
