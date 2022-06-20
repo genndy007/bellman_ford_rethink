@@ -12,8 +12,8 @@ public class Main {
 
         long startTime = System.currentTimeMillis();
 //        bf.parallelAlgorithm(16);
-//        bf.sequentialAlgorithmWithCheck();
-        bf.parallelAlgorithmExecutorService(8);
+
+        bf.parallelAlgorithm(8);
         long endTime = System.currentTimeMillis();
         g.printDistances();
 
