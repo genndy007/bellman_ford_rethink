@@ -3,7 +3,6 @@ package com.github.genndy007.bellman_ford;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.OptionalDouble;
 
 public class AlgoRunner {
     private final Integer TIME_TESTS = 5;
@@ -14,7 +13,7 @@ public class AlgoRunner {
     }
 
     public void runBothCompareResults() throws IOException, InterruptedException {
-        for (String fileName: fileNames) {
+        for (String fileName : fileNames) {
             GraphReader gr = new GraphReader(fileName);
             Graph g = gr.readAsEdgeList();
             BellmanFord bf = new BellmanFord(g, 0);
@@ -36,6 +35,9 @@ public class AlgoRunner {
         GraphReader gr = new GraphReader(fileName);
         Graph g = gr.readAsEdgeList();
         BellmanFord bf = new BellmanFord(g, 0);
+
+        System.out.println(isParallel ? "Parallel" : "Sequential");
+        System.out.println("Graph V=" + size + " density=0." + density);
 
         List<Integer> execTimes = new ArrayList<>(TIME_TESTS);
         for (int i = 0; i < TIME_TESTS; i++) {
@@ -61,7 +63,7 @@ public class AlgoRunner {
 
     private void generateFileNames(List<Integer> graphSizes, List<Integer> densities) {
         this.fileNames = new ArrayList<>(graphSizes.size() * densities.size());
-        for (Integer size: graphSizes) {
+        for (Integer size : graphSizes) {
             for (Integer density : densities) {
                 String fileName = "graph_v" + size + "_p0" + density + ".txt";
                 fileNames.add(fileName);
@@ -71,7 +73,7 @@ public class AlgoRunner {
 
     private List<Integer> collectVertices(Graph g) {
         List<Integer> distances = new ArrayList<>(g.vertices.size());
-        for (Vertex v: g.vertices) {
+        for (Vertex v : g.vertices) {
             distances.add(v.distance);
         }
         return distances;
