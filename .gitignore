@@ -1,2 +1,4 @@
 .idea
 target
+src/main/resources/graphs/
+src/main/resources/OLD_graphs
