@@ -12,6 +12,10 @@ public class Graph {
         this.edges = edges;
     }
 
+    public String info() {
+        return "Graph(V=" + vertices.size() + ", E=" + edges.size() + ")";
+    }
+
     @Override
     public String toString() {
         String response = "Graph with\n vertices_ids = ";
