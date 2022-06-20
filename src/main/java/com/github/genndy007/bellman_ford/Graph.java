@@ -1,6 +1,5 @@
 package com.github.genndy007.bellman_ford;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Graph {
@@ -34,7 +33,7 @@ public class Graph {
 
     public void printDistances() {
         String line;
-        for (Vertex v: vertices) {
+        for (Vertex v : vertices) {
             line = String.valueOf(v.id) + " " + String.valueOf(v.distance);
             System.out.println(line);
         }
